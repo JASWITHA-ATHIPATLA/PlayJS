@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 800px;
+      height: 400px;
+      border-radius: 20px;
+      background-color: rgb(165, 41, 223);
+    }
+    .items {
+      margin: 20px;
+      padding: 10px;
+    }
+    input {
+      background-color: bisque;
+      width: 300px;
+      height: 50px;
+      border-radius: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="items">
+      <h1>Temperature converter</h1>
+      <input type="button" onclick="convertToF()" value="Convert (°C to °F)" />
+      <input type="button" onclick="convertToC()" value="Convert (°F to °C)" />
+      <p class="inputTemp"></p>
+      <h2 class="celsius"></h2>
+      <h2 class="fahrenheit"></h2>
+    </div>
+  </div>
+  <script>
+    let number = parseFloat(prompt("Enter temperature:"));
+    let inputTemp = document.getElementsByClassName("inputTemp")[0];
+    let heading1 = document.getElementsByClassName("celsius")[0];
+    let heading2 = document.getElementsByClassName("fahrenheit")[0];
+
+    if (isNaN(number)) {
+      inputTemp.innerHTML = "Please enter a valid number!";
+    } else {
+      inputTemp.innerHTML = `Entered temperature is ${number}`;
+    }
+
+    function convertToC() {
+      if (isNaN(number)) {
+        heading1.innerHTML = "";
+        return;
+      }
+      let C = (number - 32) * (5 / 9);
+      heading1.innerHTML = `The °F to °C converted temperature is ${C.toFixed(2)}°C`;
+      heading2.innerHTML = "";
+    }
+
+    function convertToF() {
+      if (isNaN(number)) {
+        heading2.innerHTML = "";
+        return;
+      }
+      let F = (number * 9) / 5 + 32;
+      heading2.innerHTML = `The °C to °F converted temperature is ${F.toFixed(2)}°F`;
+      heading1.innerHTML = "";
+    }
+  </script>
+</body>
+</html>
