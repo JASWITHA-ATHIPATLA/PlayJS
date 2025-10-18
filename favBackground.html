@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>FavBackground selector</title>
+ <style>
+  body {
+   margin: 0%;
+   padding: 0%;
+   display: flex;
+   justify-content: center;
+  }
+
+  .container {
+   width: 500px;
+   height: 150px;
+   background-color: rgb(249, 249, 249);
+   text-align: center;
+  }
+ </style>
+</head>
+
+<body>
+ <div class="container">
+  <h1>Select Your FavBackground</h1>
+  <div class="btn">
+   <input type="color" oninput="changeBG()" id="colorPick">
+  </div>
+ </div>
+ <script>
+  function changeBG() {
+   let pickCol = document.querySelector("#colorPick").value;
+   document.body.style.backgroundColor = pickCol;
+  }
+ </script>
+</body>
+
+</html>
