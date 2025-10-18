@@ -8,20 +8,27 @@
     body {
       margin: 0;
       padding: 0;
+      background: linear-gradient(135deg, #ffb3ec, #b388ff);;linear-gradient(135deg, #ffb3ec, #b388ff);
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      
     }
     .container {
-      width: 800px;
+      width: 700px;
       height: 400px;
       border-radius: 20px;
-      background-color: rgb(165, 41, 223);
+      background-color: rgb(71, 237, 240);
+      margin: 20px;
+
     }
     .items {
       margin: 20px;
       padding: 10px;
     }
     input {
-      background-color: bisque;
-      width: 300px;
+      background-color: linear-gradient(135deg, #ffb3ec, #b388ff);;
+      width: 200px;
       height: 50px;
       border-radius: 10px;
       margin: 10px 0;
@@ -39,38 +46,61 @@
       <p class="inputTemp"></p>
       <h2 class="celsius"></h2>
       <h2 class="fahrenheit"></h2>
+      <h2 class="climateCheck"></h2>
     </div>
   </div>
   <script>
-    let number = parseFloat(prompt("Enter temperature:"));
+    let temp  = parseFloat(prompt("Enter temperature:"));
     let inputTemp = document.getElementsByClassName("inputTemp")[0];
     let heading1 = document.getElementsByClassName("celsius")[0];
     let heading2 = document.getElementsByClassName("fahrenheit")[0];
+    let WeatherCondition=document.getElementsByClassName("climateCheck")[0];
 
-    if (isNaN(number)) {
+    if (isNaN(temp)) {
       inputTemp.innerHTML = "Please enter a valid number!";
     } else {
-      inputTemp.innerHTML = `Entered temperature is ${number}`;
+      inputTemp.innerHTML = `Entered temperature is ${temp}`;
     }
 
     function convertToC() {
-      if (isNaN(number)) {
+      if (isNaN(temp)) {
         heading1.innerHTML = "";
         return;
       }
-      let C = (number - 32) * (5 / 9);
+      let C = (temp - 32) * (5 / 9);
       heading1.innerHTML = `The °F to °C converted temperature is ${C.toFixed(2)}°C`;
       heading2.innerHTML = "";
+      if (C > 30) {
+        WeatherCondition.innerHTML = "🔥 Hot";
+        WeatherCondition.style.color = "red";
+      } else if (C >= 15 && C <= 30) {
+        WeatherCondition.innerHTML = "🌤️ Warm";
+        WeatherCondition.style.color = "orange";
+      } else {
+        WeatherCondition.innerHTML = "❄️ Cold";
+        WeatherCondition.style.color = "blue";
+      }
     }
 
     function convertToF() {
-      if (isNaN(number)) {
+      if (isNaN(temp)) {
         heading2.innerHTML = "";
         return;
       }
-      let F = (number * 9) / 5 + 32;
+      let F = (temp * 9) / 5 + 32;
       heading2.innerHTML = `The °C to °F converted temperature is ${F.toFixed(2)}°F`;
       heading1.innerHTML = "";
+      WeatherCondition.innerHTML="";
+      if (F > 86) {
+        WeatherCondition.innerHTML = "🔥 Hot";
+        WeatherCondition.style.color = "red";
+      } else if (F >= 59 && F <= 86) {
+        WeatherCondition.innerHTML = "🌤️ Warm";
+        WeatherCondition.style.color = "orange";
+      } else {
+        WeatherCondition.innerHTML = "❄️ Cold";
+        WeatherCondition.style.color = "blue";
+      }
     }
   </script>
 </body>
