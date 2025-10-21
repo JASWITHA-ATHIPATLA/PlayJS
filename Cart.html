@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="./cart.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="items">
+      <h1>Shopping Cart</h1>
+
+      <select name="basket" id="basket">
+        <option value="apple">APPLE - $0.6</option>
+        <option value="orange">ORANGE - $0.4</option>
+        <option value="pineapple">PINEAPPLE - $2</option>
+        <option value="banana">BANANA - $0.3</option>
+      </select>
+
+      <input type="number" class="qty" placeholder="Enter quantity" min="1" />
+      <button class="btn">Add To Cart</button>
+
+      <ul class="cart-list"></ul>
+      <h3 class="total">Total: $0.00</h3>
+    </div>
+  </div>
+
+  <script src="./cart.js"></script>
+</body>
+</html>
